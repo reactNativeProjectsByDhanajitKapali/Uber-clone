@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Icon } from "react-native-elements";
+import { useNavigation } from "@react-navigation/core";
 
 const data = [
   {
@@ -25,6 +26,8 @@ const data = [
 ];
 
 const NavOptions = () => {
+  const navigation = useNavigation();
+
   return (
     <FlatList
       data={data}
@@ -38,6 +41,7 @@ const NavOptions = () => {
             borderRadius: 5,
             padding: 15,
           }}
+          onPress={() => navigation.navigate(item.screen)}
         >
           <View style={{ alignItems: "center", justifyContent: "center" }}>
             <Image
