@@ -9,6 +9,8 @@ import {
 import React from "react";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/core";
+import { useSelector } from "react-redux";
+import { selectOrigin } from "../slices/navSlice";
 
 const data = [
   {
@@ -27,6 +29,7 @@ const data = [
 
 const NavOptions = () => {
   const navigation = useNavigation();
+  const origin = useSelector(selectOrigin);
 
   return (
     <FlatList
@@ -42,6 +45,7 @@ const NavOptions = () => {
             padding: 15,
           }}
           onPress={() => navigation.navigate(item.screen)}
+          disabled={!origin}
         >
           <View style={{ alignItems: "center", justifyContent: "center" }}>
             <Image
