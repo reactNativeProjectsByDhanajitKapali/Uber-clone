@@ -59,9 +59,10 @@ const RideOptionsCard = () => {
           </Text>
         </View>
 
-        {data.map((item) => {
+        {data.map((item, index) => {
           return (
             <TouchableOpacity
+              key={index}
               style={{
                 flexDirection: "row",
                 //alignContent: "center",
