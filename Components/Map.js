@@ -8,7 +8,7 @@ const Map = () => {
   const origin = useSelector(selectOrigin);
   return (
     <MapView
-      style={{ flex: 0.5 }}
+      style={{ flex: 1 }}
       mapType="mutedStandard"
       initialRegion={{
         latitude: origin.location.lat,
