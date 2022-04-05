@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/core";
+import { useSelector } from "react-redux";
+import { selectTravelTimeInformation } from "../slices/navSlice";
 
 const data = [
   {
@@ -32,6 +34,7 @@ const data = [
 const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [rideSelected, setRideSelected] = useState();
+  const travelTimeInformation = useSelector(selectTravelTimeInformation);
 
   return (
     <SafeAreaView>
@@ -55,7 +58,7 @@ const RideOptionsCard = () => {
               fontSize: 22,
             }}
           >
-            Select a Ride
+            Select a Ride - {travelTimeInformation?.distance.text}
           </Text>
         </View>
 
@@ -83,7 +86,9 @@ const RideOptionsCard = () => {
                 <Text style={{ fontWeight: "bold", fontSize: 20 }}>
                   {item.title}
                 </Text>
-                <Text>Travel time...</Text>
+                <Text>
+                  {travelTimeInformation?.duration.text} to the destination
+                </Text>
               </View>
               <Text
                 style={{
@@ -92,7 +97,10 @@ const RideOptionsCard = () => {
                   alignSelf: "center",
                 }}
               >
-                $99
+                ₹
+                {Math.round(
+                  (travelTimeInformation?.duration.value * item.multiplier) / 10
+                )}
               </Text>
             </TouchableOpacity>
           );
