@@ -58,7 +58,7 @@ const RideOptionsCard = () => {
               fontSize: 22,
             }}
           >
-            Select a Ride - {travelTimeInformation?.distance.text}
+            Select a Ride - {travelTimeInformation?.distance?.text}
           </Text>
         </View>
 
@@ -87,7 +87,7 @@ const RideOptionsCard = () => {
                   {item.title}
                 </Text>
                 <Text>
-                  {travelTimeInformation?.duration.text} to the destination
+                  {travelTimeInformation?.duration?.text} to the destination
                 </Text>
               </View>
               <Text
@@ -99,7 +99,8 @@ const RideOptionsCard = () => {
               >
                 ₹
                 {Math.round(
-                  (travelTimeInformation?.duration.value * item.multiplier) / 10
+                  (travelTimeInformation?.duration?.value * item.multiplier) /
+                    10
                 )}
               </Text>
             </TouchableOpacity>
