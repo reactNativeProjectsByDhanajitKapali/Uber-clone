@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { setDestination } from "../slices/navSlice";
 import { useNavigation } from "@react-navigation/core";
 import NavFovourites from "./NavFovourites";
+import { Icon } from "react-native-elements";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
@@ -42,8 +44,52 @@ const NavigateCard = () => {
             language: "en",
           }}
         />
+        <NavFovourites />
       </View>
-      <NavFovourites />
+      <View
+        style={{
+          margin: 10,
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          marginTop: "auto",
+          borderColor: "gray",
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            justifyContent: "center",
+            flexDirection: "row",
+            backgroundColor: "black",
+            width: 100,
+            height: 40,
+            borderRadius: 20,
+            padding: 10,
+          }}
+          onPress={() => navigation.navigate("RideOptionsCard")}
+        >
+          <Icon name="car" type="font-awesome" color="white" size={16} />
+          <Text style={{ textAlign: "center", color: "white" }}> Rides</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            justifyContent: "center",
+            flexDirection: "row",
+            backgroundColor: "black",
+            width: 100,
+            height: 40,
+            borderRadius: 20,
+            padding: 10,
+          }}
+        >
+          <Icon
+            name="fast-food-outline"
+            type="ionicon"
+            color="white"
+            size={16}
+          />
+          <Text style={{ textAlign: "center", color: "white" }}> Eats</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
