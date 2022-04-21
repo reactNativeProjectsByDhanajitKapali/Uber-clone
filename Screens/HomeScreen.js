@@ -46,6 +46,7 @@ const HomeScreen = () => {
             );
             dispatch(setDestination(null));
           }}
+          onFail={(error) => console.error(error)}
           fetchDetails={true}
           query={{
             key: GOOGLE_MAPS_APIKEY,
