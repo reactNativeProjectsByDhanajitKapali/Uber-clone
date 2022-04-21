@@ -14,9 +14,9 @@ const HomeScreen = () => {
       <View style={{}}>
         <Image
           style={{
-            marginLeft: 5,
-            width: 120,
-            height: 120,
+            marginLeft: 10,
+            width: 125,
+            height: 125,
             resizeMode: "contain",
           }}
           source={{
@@ -29,6 +29,8 @@ const HomeScreen = () => {
           styles={{
             container: {
               flex: 0,
+              marginLeft: 10,
+              marginRight: 10,
             },
             textInput: {
               fontSize: 18,

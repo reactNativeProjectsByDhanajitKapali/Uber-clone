@@ -40,7 +40,7 @@ const NavOptions = () => {
         <TouchableOpacity
           style={{
             backgroundColor: "#DFDFDE",
-            margin: 5,
+            margin: 10,
             borderRadius: 5,
             padding: 15,
           }}
